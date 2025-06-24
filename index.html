@@ -9,9 +9,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Guía de Medios">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' rx='22' fill='%23007bff'/%3e%3cpath fill='%23ffffff' d='M50,15A35,35,0,0,0,15,50A35,35,0,0,0,50,85A35,35,0,0,0,85,50A35,35,0,0,0,50,15Zm0,5A30,30,0,0,1,80,50A30,30,0,0,1,50,80A30,30,0,0,1,20,50A30,30,0,0,1,50,20Z'/%3e%3ccircle cx='40' cy='45' r='5' fill='%23ffffff'/%3e%3ccircle cx='63' cy='42' r='7' fill='%23ffffff'/%3e%3ccircle cx='55' cy='65' r='6' fill='%23ffffff'/%3e%3ccircle cx='38' cy='62' r='4' fill='%23ffffff'/%3e%3c/svg%3e">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' rx='22' fill='%23007bff'/%3e%3cpath fill='white' d='M60,15H40V35H25L35,85H65L75,35H60V15ZM55,35H45V20H55V35Z'/%3e%3c/svg%3e">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -42,6 +43,7 @@
         main {
             flex-grow: 1;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         footer {
             flex-shrink: 0;
@@ -57,6 +59,41 @@
             color: white;
             font-weight: bold;
         }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+        .checklist-item.completed label {
+            text-decoration: line-through;
+            color: #6b7280;
+        }
     </style>
 </head>
 <body class="bg-[#00428d]">
@@ -68,7 +105,7 @@
 
         <div id="controls" class="bg-[#00428d] p-4 pt-2">
              <div class="max-w-4xl mx-auto">
-                <label for="media-select" class="block text-lg font-medium text-sky-200 mb-2">Seleccione un Procedimiento:</label>
+                <input type="search" id="search-box" placeholder="Buscar medio..." class="w-full p-3 mb-4 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-[#4da3ff] focus:border-[#4da3ff] text-lg">
                 <select id="media-select" class="w-full p-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-[#4da3ff] focus:border-[#4da3ff] text-lg">
                 </select>
             </div>
@@ -85,10 +122,23 @@
             <p class="text-sm text-sky-300">Aplicación generada a partir del Manual de Procedimientos v2.0</p>
         </footer>
     </div>
+    
+    <div id="calculator-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold mb-4">Calculadora de Volumen</h3>
+            <div class="mb-4">
+                <label for="volume-input" class="block text-sm font-medium text-gray-700">Volumen deseado (ml):</label>
+                <input type="number" id="volume-input" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Ej: 650">
+            </div>
+            <button id="calculate-btn" class="w-full bg-[#007bff] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#005cb8]">Calcular</button>
+            <div id="calculator-results" class="mt-4"></div>
+            <button id="close-modal-btn" class="w-full mt-4 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600">Cerrar</button>
+        </div>
+    </div>
 
     <script>
         const mediaDatabase = [
-            {
+             {
                 name: 'Agar Tripticasa de Soya (TSA)',
                 id: 'tsa',
                 purpose: 'Medio de cultivo general para el aislamiento de una amplia variedad de microorganismos.',
@@ -96,8 +146,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Agar TSA', base_vol: 1000, base_qty: 40, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el polvo en el agua para análisis. Aplicar calor suave si es necesario.',
@@ -114,9 +164,9 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
-                    { name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Agar TSA', base_vol: 1000, base_qty: 40, unit: 'g' },
+                    { name: 'Cloruro de Sodio (NaCl)', base_vol: 1000, base_qty: 10, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los polvos en el agua para análisis. Aplicar calor suave si es necesario.',
@@ -133,12 +183,12 @@
                 references: 'Holt, R. A. (1987).',
                 notes: [],
                 ingredients: [
-                    { name: 'Triptona', vol1000: '4.0 g', vol500: '2.0 g', vol250: '1.0 g' },
-                    { name: 'Extracto de levadura', vol1000: '0.4 g', vol500: '0.2 g', vol250: '0.1 g' },
-                    { name: 'CaCl₂·2H₂O', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'MgSO₄·7H₂O', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Triptona', base_vol: 1000, base_qty: 4.0, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.4, unit: 'g' },
+                    { name: 'CaCl₂·2H₂O', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'MgSO₄·7H₂O', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'Agar', base_vol: 1000, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los componentes en el agua para análisis con agitación y calor suave.',
@@ -155,12 +205,12 @@
                 references: 'Crump et al. (2001).',
                 notes: [],
                 ingredients: [
-                    { name: 'Triptona', vol1000: '5.0 g', vol500: '2.5 g', vol250: '1.25 g' },
-                    { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'Acetato de Sodio', vol1000: '0.2 g', vol500: '0.1 g', vol250: '0.05 g' },
-                    { name: 'Extracto de carne', vol1000: '0.2 g', vol500: '0.1 g', vol250: '0.05 g' },
-                    { name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Triptona', base_vol: 1000, base_qty: 5.0, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'Acetato de Sodio', base_vol: 1000, base_qty: 0.2, unit: 'g' },
+                    { name: 'Extracto de carne', base_vol: 1000, base_qty: 0.2, unit: 'g' },
+                    { name: 'Agar', base_vol: 1000, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los componentes en el agua para análisis con agitación y calor suave.',
@@ -177,8 +227,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Agar Marino', vol1000: '55.1 g', vol500: '27.55 g', vol250: '13.78 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Agar Marino', base_vol: 1000, base_qty: 55.1, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el polvo en el agua para análisis con agitación y calor suave.',
@@ -195,8 +245,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Caldo Marino', vol1000: '37.4 g', vol500: '18.7 g', vol250: '9.35 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Caldo Marino', base_vol: 1000, base_qty: 37.4, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Suspender el polvo en el agua para análisis.',
@@ -214,8 +264,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Agar Sabouraud', vol1000: '65 g', vol500: '32.5 g', vol250: '16.25 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Agar Sabouraud', base_vol: 1000, base_qty: 65, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el polvo en el agua para análisis con agitación y calor suave.',
@@ -232,8 +282,8 @@
                 references: null,
                 notes: ['Para inhibir el crecimiento bacteriano, el medio estéril y enfriado (45-50°C) puede ser acidificado con ácido tartárico estéril al 10%. No recalentar el medio tras la adición del ácido.'],
                 ingredients: [
-                    { name: 'Polvo de PDA (Difco)', vol1000: '39 g', vol500: '19.5 g', vol250: '9.75 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de PDA (Difco)', base_vol: 1000, base_qty: 39, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Suspender el polvo en el agua.',
@@ -251,12 +301,12 @@
                 references: null,
                 notes: ['La adición de sangre debe ser aséptica y a la temperatura correcta (45-50°C) para no lisar los glóbulos rojos.'],
                 ingredients: [
-                    { name: 'Agar Base Sangre', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
-                    { name: 'Cloruro de Sodio', vol1000: '5 g', vol500: '2.5 g', vol250: '1.25 g' },
-                    { name: 'L-Cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },
-                    { name: 'NaOH 10N (estimado)', vol1000: '200 µL', vol500: '100 µL', vol250: '50 µL' },
-                    { name: 'Agua para análisis', vol1000: '960 ml', vol500: '480 ml', vol250: '240 ml' },
-                    { name: 'Sangre desfibrinada', vol1000: '40 ml', vol500: '20 ml', vol250: '10 ml' }
+                    { name: 'Agar Base Sangre', base_vol: 960, base_qty: 40, unit: 'g' },
+                    { name: 'Cloruro de Sodio', base_vol: 960, base_qty: 5, unit: 'g' },
+                    { name: 'L-Cisteína', base_vol: 960, base_qty: 1, unit: 'g' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 960, base_qty: 200, unit: 'µL' },
+                    { name: 'Agua para análisis', base_vol: 960, base_qty: 960, unit: 'ml' },
+                    { name: 'Sangre desfibrinada', base_vol: 960, base_qty: 40, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los polvos en el agua para análisis con agitación y calor.',
@@ -274,14 +324,14 @@
                 references: null,
                 notes: ['El carbón activado puede dificultar la lectura de las colonias. Asegurar una buena iluminación al examinar las placas.'],
                 ingredients: [
-                    { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
-                    { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'Carbón activado', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },
-                    { name: 'L-cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },
-                    { name: 'NaOH 10N', vol1000: '600 µL', vol500: '300 µL', vol250: '150 µL' },
-                    { name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' },
-                    { name: 'Amphotericin B', vol1000: '1 ml', vol500: '0.5 ml', vol250: '0.25 ml' }
+                    { name: 'Peptona', base_vol: 1000, base_qty: 10, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'Carbón activado', base_vol: 1000, base_qty: 1, unit: 'g' },
+                    { name: 'L-cisteína', base_vol: 1000, base_qty: 1, unit: 'g' },
+                    { name: 'NaOH 10N', base_vol: 1000, base_qty: 600, unit: 'µL' },
+                    { name: 'Agar', base_vol: 1000, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' },
+                    { name: 'Amphotericin B', base_vol: 1000, base_qty: 1, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los componentes (excepto Amphotericin B) en agua para análisis con agitación y calor.',
@@ -299,13 +349,13 @@
                 references: null,
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO para el crecimiento de R. salmoninarum.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
-                    { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
-                    { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'L-Cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },
-                    { name: 'NaOH 10N (estimado)', vol1000: '~424 µL', vol500: '~212 µL', vol250: '~106 µL' },
-                    { name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
-                    { name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },
-                    { name: 'Suero Fetal Bovino', vol1000: '100 ml', vol500: '50 ml', vol250: '25 ml' }
+                    { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
+                    { name: 'L-Cisteína', base_vol: 900, base_qty: 1, unit: 'g' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
+                    { name: 'Agar', base_vol: 900, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los componentes (excepto SFB) en agua para análisis con agitación y calor.',
@@ -323,12 +373,12 @@
                 references: 'Evelyn (1977), Rhodes et al. (2008).',
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO. El pH inicial es aprox. 5.15, por lo que el ajuste debe ser cuidadoso.', 'Las cantidades de NaOH 10N son estimaciones. Siempre verificar con medidor calibrado.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
-                    { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
-                    { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'L-Cisteína HCl', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
-                    { name: 'NaOH 10N (estimado)', vol1000: '~424 µL', vol500: '~212 µL', vol250: '~106 µL' },
-                    { name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },
-                    { name: 'Suero Fetal Bovino', vol1000: '100 ml', vol500: '50 ml', vol250: '25 ml' }
+                    { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
+                    { name: 'L-Cisteína HCl', base_vol: 900, base_qty: 0.5, unit: 'g' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
+                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los polvos en el agua para análisis.',
@@ -346,11 +396,11 @@
                 references: 'Contreras-Lynch et al. (2017).',
                 notes: ['La Solución Stock se debe esterilizar por filtración, NUNCA en autoclave, ya que sus componentes son termolábiles.'],
                 ingredients: [
-                    { name: 'TSB', vol1000: '25 g', vol500: '12.5 g', vol250: '6.25 g' },
-                    { name: 'NaCl', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
-                    { name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },
-                    { name: 'Solución Stock', vol1000: '50 ml', vol500: '25 ml', vol250: '12.5 ml' },
-                    { name: 'Suero Fetal Bovino', vol1000: '50 ml', vol500: '25 ml', vol250: '12.5 ml' }
+                    { name: 'TSB', base_vol: 900, base_qty: 25, unit: 'g' },
+                    { name: 'NaCl', base_vol: 900, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
+                    { name: 'Solución Stock', base_vol: 900, base_qty: 50, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 50, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver TSB y NaCl en el agua para análisis.',
@@ -367,8 +417,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Cloruro de Sodio (NaCl)', vol1000: '9 g', vol500: '4.5 g', vol250: '2.25 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Cloruro de Sodio (NaCl)', base_vol: 1000, base_qty: 9, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el NaCl en el agua para análisis.',
@@ -384,8 +434,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de TSB', base_vol: 1000, base_qty: 30, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el polvo en el agua para análisis.',
@@ -402,9 +452,9 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },
-                    { name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de TSB', base_vol: 1000, base_qty: 30, unit: 'g' },
+                    { name: 'Cloruro de Sodio (NaCl)', base_vol: 1000, base_qty: 10, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver ambos polvos en el agua para análisis.',
@@ -421,8 +471,8 @@
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de Caldo MHCA', vol1000: '22 g', vol500: '11 g', vol250: '5.5 g' },
-                    { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
+                    { name: 'Polvo de Caldo MHCA', base_vol: 1000, base_qty: 22, unit: 'g' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver el polvo en el agua para análisis.',
@@ -455,20 +505,40 @@
         ];
         
         const selectElement = document.getElementById('media-select');
+        const searchBox = document.getElementById('search-box');
         const displayElement = document.getElementById('procedure-display');
+        const modal = document.getElementById('calculator-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const volumeInput = document.getElementById('volume-input');
+        const calculatorResults = document.getElementById('calculator-results');
 
-        function populateSelect() {
-            mediaDatabase.sort((a, b) => a.name.localeCompare(b.name));
-            mediaDatabase.forEach(media => {
+        let currentMediaForCalculator = null;
+
+        function populateSelect(filter = '') {
+            const filteredMedia = mediaDatabase.filter(media => media.name.toLowerCase().includes(filter.toLowerCase()));
+            selectElement.innerHTML = '';
+            filteredMedia.sort((a, b) => a.name.localeCompare(b.name));
+            filteredMedia.forEach(media => {
                 const option = document.createElement('option');
                 option.value = media.id;
                 option.textContent = media.name;
                 selectElement.appendChild(option);
             });
+            if (filteredMedia.length > 0) {
+                 renderProcedure(selectElement.value);
+            } else {
+                 displayElement.innerHTML = '<p class="text-center text-gray-500">No se encontraron medios.</p>';
+            }
+        }
+        
+        function formatNumber(num) {
+            return Number.isInteger(num) ? num : num.toFixed(2);
         }
 
         function renderProcedure(mediaId) {
             const media = mediaDatabase.find(m => m.id === mediaId);
+            currentMediaForCalculator = media;
             if (!media) {
                 displayElement.innerHTML = '<p>Procedimiento no encontrado.</p>';
                 return;
@@ -487,20 +557,29 @@
                     <tbody>
             `;
             media.ingredients.forEach(ing => {
+                const vol1000 = ing.vol1000 || `${formatNumber(ing.base_qty)} ${ing.unit}`;
+                const vol500 = ing.vol500 || `${formatNumber(ing.base_qty * (500 / (ing.base_vol || 1000)))} ${ing.unit}`;
+                const vol250 = ing.vol250 || `${formatNumber(ing.base_qty * (250 / (ing.base_vol || 1000)))} ${ing.unit}`;
+
                 ingredientsTable += `
                     <tr>
                         <td class="table-cell font-semibold">${ing.name}</td>
-                        <td class="table-cell">${ing.vol1000}</td>
-                        <td class="table-cell">${ing.vol500}</td>
-                        <td class="table-cell">${ing.vol250}</td>
+                        <td class="table-cell">${vol1000}</td>
+                        <td class="table-cell">${vol500}</td>
+                        <td class="table-cell">${vol250}</td>
                     </tr>
                 `;
             });
             ingredientsTable += '</tbody></table>';
 
-            let stepsList = '<ol class="list-decimal list-inside space-y-3 mt-4">';
-            media.steps.forEach(step => {
-                stepsList += `<li class="text-gray-700 leading-relaxed">${step}</li>`;
+            let stepsList = '<ol class="space-y-3 mt-4">';
+            media.steps.forEach((step, index) => {
+                stepsList += `
+                    <li class="checklist-item" data-step="${index}">
+                        <input type="checkbox" id="step-${index}" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <label for="step-${index}" class="text-gray-700 leading-relaxed">${step}</label>
+                    </li>
+                `;
             });
             stepsList += '</ol>';
             
@@ -534,7 +613,10 @@
                     <p class="text-gray-600 mt-2 mb-4">${media.purpose}</p>
                     
                     <div class="mt-6">
-                        <h3 class="text-xl font-bold mb-2 text-[#005cb8]">Ingredientes y Cantidades</h3>
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold mb-2 text-[#005cb8]">Ingredientes y Cantidades</h3>
+                            <button id="open-calculator-btn" class="text-xl p-2 rounded-full hover:bg-gray-200 w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-calculator"></i></button>
+                        </div>
                         ${ingredientsTable}
                     </div>
 
@@ -554,17 +636,67 @@
             `;
 
             displayElement.innerHTML = procedureHTML;
+            document.getElementById('open-calculator-btn').addEventListener('click', openCalculator);
+            
+            document.querySelectorAll('.checklist-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    if (e.target !== checkbox) {
+                         checkbox.checked = !checkbox.checked;
+                    }
+                    item.classList.toggle('completed', checkbox.checked);
+                });
+            });
         }
+        
+        function openCalculator() {
+            volumeInput.value = '';
+            calculatorResults.innerHTML = '';
+            modal.classList.remove('hidden');
+        }
+
+        function closeCalculator() {
+            modal.classList.add('hidden');
+        }
+
+        calculateBtn.addEventListener('click', () => {
+            const targetVolume = parseFloat(volumeInput.value);
+            if (!targetVolume || targetVolume <= 0 || !currentMediaForCalculator) {
+                calculatorResults.innerHTML = '<p class="text-red-500">Por favor, ingrese un volumen válido.</p>';
+                return;
+            }
+
+            let resultsHTML = `
+                <h4 class="font-bold mt-4 mb-2">Resultados para ${targetVolume} ml:</h4>
+                <ul class="list-disc list-inside space-y-1">
+            `;
+
+            currentMediaForCalculator.ingredients.forEach(ing => {
+                const newQty = (targetVolume / (ing.base_vol || 1000)) * ing.base_qty;
+                resultsHTML += `<li><strong>${ing.name}:</strong> ${formatNumber(newQty)} ${ing.unit}</li>`;
+            });
+            
+            resultsHTML += '</ul>';
+            calculatorResults.innerHTML = resultsHTML;
+        });
+
+        searchBox.addEventListener('input', (e) => {
+            populateSelect(e.target.value);
+        });
 
         selectElement.addEventListener('change', (e) => {
             renderProcedure(e.target.value);
         });
         
+        closeModalBtn.addEventListener('click', closeCalculator);
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) {
+                closeCalculator();
+            }
+        });
+        
         document.addEventListener('DOMContentLoaded', () => {
             populateSelect();
-            if (mediaDatabase.length > 0) {
-                renderProcedure(mediaDatabase[0].id);
-            }
         });
 
     </script>
