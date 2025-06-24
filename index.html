@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Guía de Preparación de Medios&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table-cell {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #005cb8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #005cb8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-[#00428d]"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="app" class="min-h-screen text-gray-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="bg-[#005cb8] text-white p-4 shadow-lg sticky top-0 z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-2xl font-bold text-center"&gt;Guía de Preparación de Medios&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main class="p-4 md:p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="media-select" class="block text-lg font-medium text-sky-200 mb-2"&gt;Seleccione un Procedimiento:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="media-select" class="w-full p-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-[#4da3ff] focus:border-[#4da3ff] text-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="procedure-display" class="bg-slate-50 rounded-xl shadow-2xl p-4 md:p-6 transition-all duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="text-center p-4 mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm text-sky-300"&gt;Aplicación generada a partir del Manual de Procedimientos v2.0&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const mediaDatabase = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar Tripticasa de Soya (TSA)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'tsa',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio de cultivo general para el aislamiento de una amplia variedad de microorganismos.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el polvo en el agua para análisis. Aplicar calor suave si es necesario.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar que el pH esté en el rango 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general (121°C por 15 min).',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas de Petri.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar Tripticasa de Soya Sal (TSA/SAL)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'tsa-sal',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio para patógenos de ambiente salino.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los polvos en el agua para análisis. Aplicar calor suave si es necesario.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar pH en el rango 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas de Petri.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar TYES',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'tyes',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio para el crecimiento de Flavobacterium psychrophilum.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: 'Holt, R. A. (1987).',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Triptona', vol1000: '4.0 g', vol500: '2.0 g', vol250: '1.0 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de levadura', vol1000: '0.4 g', vol500: '0.2 g', vol250: '0.1 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'CaCl₂·2H₂O', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'MgSO₄·7H₂O', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los componentes en el agua para análisis con agitación y calor suave.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar y ajustar pH a 7.2.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas de Petri.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar MAOA (Anacker y Ordal Modificado)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'maoa',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio para especies de Flavobacterium.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: 'Crump et al. (2001).',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Triptona', vol1000: '5.0 g', vol500: '2.5 g', vol250: '1.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Acetato de Sodio', vol1000: '0.2 g', vol500: '0.1 g', vol250: '0.05 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de carne', vol1000: '0.2 g', vol500: '0.1 g', vol250: '0.05 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los componentes en el agua para análisis con agitación y calor suave.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar y ajustar pH a 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas de Petri.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar Marino',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'agar-marino',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio sólido para bacterias marinas heterótrofas.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Agar Marino', vol1000: '55.1 g', vol500: '27.55 g', vol250: '13.78 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el polvo en el agua para análisis con agitación y calor suave.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar que el pH esté en 7.6 ± 0.2.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo Marino (Marine Broth 2216)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'caldo-marino',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio líquido para el cultivo de bacterias marinas heterótrofas.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Caldo Marino', vol1000: '37.4 g', vol500: '18.7 g', vol250: '9.35 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Suspender el polvo en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Calentar con agitación frecuente y hervir durante 1 minuto para disolver.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar que el pH final esté en el rango 7.6 ± 0.2.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar y alicuotar si es necesario.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar Sabouraud Dextrosa',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'sabouraud',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio para aislamiento de hongos y levaduras.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Agar Sabouraud', vol1000: '65 g', vol500: '32.5 g', vol250: '16.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el polvo en el agua para análisis con agitación y calor suave.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar y ajustar pH a 5.6 ± 0.2.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar Papa Dextrosa (PDA)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'pda',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio para cultivo de levaduras y mohos.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de PDA (Difco)', vol1000: '39 g', vol500: '19.5 g', vol250: '9.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Suspender el polvo en el agua.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Calentar con agitación y hervir por 1 minuto para disolver.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar que el pH esté en 5.6 ± 0.2.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar P. salmonis',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'p-salmonis',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio enriquecido para Piscirickettsia salmonis.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 30 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agar Base Sangre', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Cloruro de Sodio', vol1000: '5 g', vol500: '2.5 g', vol250: '1.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'L-Cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'NaOH 10N (estimado)', vol1000: '200 µL', vol500: '100 µL', vol250: '50 µL' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '960 ml', vol500: '480 ml', vol250: '240 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Sangre desfibrinada', vol1000: '40 ml', vol500: '20 ml', vol250: '10 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los polvos en el agua para análisis con agitación y calor.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Añadir lentamente la cantidad estimada de NaOH 10N y verificar con un medidor de pH hasta alcanzar un pH final de 6.7 ± 0.1. Nota: La cantidad de NaOH es una estimación y puede variar.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar el medio base según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y añadir la sangre asépticamente.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Mezclar suavemente y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar KDM-C (con Carbón)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'kdm-c',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio selectivo para Renibacterium salmoninarum.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Carbón activado', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'L-cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'NaOH 10N', vol1000: '600 µL', vol500: '300 µL', vol250: '150 µL' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Amphotericin B', vol1000: '1 ml', vol500: '0.5 ml', vol250: '0.25 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los componentes (excepto Amphotericin B) en agua para análisis con agitación y calor.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Añadir el NaOH 10N y verificar que el pH final esté en el rango 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar el medio base según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y añadir la Amphotericin B asépticamente.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Mezclar y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Agar KDM-2 (con Suero)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'kdm2-agar',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio enriquecido para Renibacterium salmoninarum.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 30 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'L-Cisteína', vol1000: '1 g', vol500: '0.5 g', vol250: '0.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'NaOH 10N (estimado)', vol1000: '~424 µL', vol500: '~212 µL', vol250: '~106 µL' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agar', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Suero Fetal Bovino', vol1000: '100 ml', vol500: '50 ml', vol250: '25 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los componentes (excepto SFB) en agua para análisis con agitación y calor.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Añadir lentamente la cantidad estimada de NaOH 10N y verificar con un medidor de pH hasta alcanzar un pH de 7.5 ± 0.1. Nota: Las cantidades son estimaciones y pueden variar.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar el medio base según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Mezclar y dispensar en placas.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo KDM-2 Líquido',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'kdm2-broth',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio líquido para el cultivo de R. salmoninarum.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 30 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: 'Evelyn (1977), Rhodes et al. (2008).',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'L-Cisteína HCl', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'NaOH 10N (estimado)', vol1000: '~424 µL', vol500: '~212 µL', vol250: '~106 µL' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Suero Fetal Bovino', vol1000: '100 ml', vol500: '50 ml', vol250: '25 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver los polvos en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Paso Crítico: Ajuste de pH. Medir el pH inicial (aprox. 5.15). Añadir lentamente el NaOH 10N estimado y ajustar hasta alcanzar 7.5 ± 0.1. Nota: La cantidad de NaOH es una estimación. Siempre verificar con medidor calibrado.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar el medio base según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Mezclar y alicuotar si es necesario.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo IFOP PsM11',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'ifop-psm11',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio líquido para determinar la CIM de P. salmonis.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '4°C, máx. 10 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: 'Contreras-Lynch et al. (2017).',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'TSB', vol1000: '25 g', vol500: '12.5 g', vol250: '6.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'NaCl', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis (base)', vol1000: '900 ml', vol500: '450 ml', vol250: '225 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Solución Stock', vol1000: '50 ml', vol500: '25 ml', vol250: '12.5 ml' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Suero Fetal Bovino', vol1000: '50 ml', vol500: '25 ml', vol250: '12.5 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver TSB y NaCl en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar el medio base según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar a 45-50°C, añadir la Solución Stock y el SFB asépticamente.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Mezclar y alicuotar.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Suero Fisiológico (Solución Salina 0.9%)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'suero-fisiologico',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Solución salina isotónica para diluciones.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: 'Temp. ambiente, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Cloruro de Sodio (NaCl)', vol1000: '9 g', vol500: '4.5 g', vol250: '2.25 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el NaCl en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Dispensar en recipientes finales.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo Tripticasa de Soya (TSB)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'tsb',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio líquido de enriquecimiento general.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el polvo en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar pH en 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar y alicuotar.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo Tripticasa de Soya Sal (TSB/SAL)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'tsb-sal',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio líquido para microorganismos halófilos.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver ambos polvos en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar pH en 7.2 - 7.4.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar y alicuotar.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>name: 'Caldo Mueller Hinton II Ajustado con Cationes (MHCA)',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 'mhca',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>purpose: 'Medio estándar para pruebas de sensibilidad.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storage: '2-8°C, hasta 90 días.',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>references: null,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredients: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Polvo de Caldo MHCA', vol1000: '22 g', vol500: '11 g', vol250: '5.5 g' },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>steps: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Disolver el polvo en el agua para análisis.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Calentar y hervir por 1 minuto.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Verificar pH en 7.3 ± 0.1.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Esterilizar según el procedimiento estándar general.',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>'Enfriar y alicuotar.'</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const selectElement = document.getElementById('media-select');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const displayElement = document.getElementById('procedure-display');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function populateSelect() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mediaDatabase.sort((a, b) =&gt; a.name.localeCompare(b.name));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mediaDatabase.forEach(media =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = media.id;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = media.name;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>selectElement.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function renderProcedure(mediaId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const media = mediaDatabase.find(m =&gt; m.id === mediaId);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!media) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>displayElement.innerHTML = '&lt;p&gt;Procedimiento no encontrado.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let ingredientsTable = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;table class="w-full border-collapse my-4 text-sm md:text-base"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="table-cell table-header"&gt;Componente&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="table-cell table-header"&gt;Para 1000 ml&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="table-cell table-header"&gt;Para 500 ml&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="table-cell table-header"&gt;Para 250 ml&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>media.ingredients.forEach(ing =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ingredientsTable += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="table-cell font-semibold"&gt;${ing.name}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="table-cell"&gt;${ing.vol1000}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="table-cell"&gt;${ing.vol500}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="table-cell"&gt;${ing.vol250}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ingredientsTable += '&lt;/tbody&gt;&lt;/table&gt;';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let stepsList = '&lt;ol class="list-decimal list-inside space-y-3 mt-4"&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>media.steps.forEach(step =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>stepsList += `&lt;li class="text-gray-700 leading-relaxed"&gt;${step}&lt;/li&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stepsList += '&lt;/ol&gt;';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let referencesHTML = media.references ? `&lt;div class="mt-4 pt-4 border-t border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-semibold text-gray-700"&gt;Referencias:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm text-gray-600 italic"&gt;${media.references}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;` : '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const procedureHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="animate-fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl md:text-3xl font-bold text-[#00428d]"&gt;${media.name}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-600 mt-2 mb-4"&gt;${media.purpose}&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold mb-2 text-[#005cb8]"&gt;Ingredientes y Cantidades&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>${ingredientsTable}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold mb-2 text-[#005cb8]"&gt;Procedimiento&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>${stepsList}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6 bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-r-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold"&gt;Almacenamiento y Vida Útil&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;${media.storage}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>${referencesHTML}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>displayElement.innerHTML = procedureHTML;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>selectElement.addEventListener('change', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderProcedure(e.target.value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>populateSelect();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (mediaDatabase.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>renderProcedure(mediaDatabase[0].id);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
