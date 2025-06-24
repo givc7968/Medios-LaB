@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Guía de Preparación de Medios</title>
     
     <!-- PWA-specific meta tags for iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Guía de Medios">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/007bff/FFFFFF/png?text=Gu%C3%ADa&font=inter">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/007bff/FFFFFF/png?text=🦠&font=noto">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,9 @@
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
+        }
+        header {
+            padding-top: env(safe-area-inset-top);
         }
         .table-cell {
             border: 1px solid #005cb8;
@@ -65,6 +68,7 @@
                 purpose: 'Medio de cultivo general para el aislamiento de una amplia variedad de microorganismos.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -82,6 +86,7 @@
                 purpose: 'Medio para patógenos de ambiente salino.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Agar TSA', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
                     { name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
@@ -100,6 +105,7 @@
                 purpose: 'Medio para el crecimiento de Flavobacterium psychrophilum.',
                 storage: '2-8°C, hasta 90 días.',
                 references: 'Holt, R. A. (1987).',
+                notes: [],
                 ingredients: [
                     { name: 'Triptona', vol1000: '4.0 g', vol500: '2.0 g', vol250: '1.0 g' },
                     { name: 'Extracto de levadura', vol1000: '0.4 g', vol500: '0.2 g', vol250: '0.1 g' },
@@ -121,6 +127,7 @@
                 purpose: 'Medio para especies de Flavobacterium.',
                 storage: '2-8°C, hasta 90 días.',
                 references: 'Crump et al. (2001).',
+                notes: [],
                 ingredients: [
                     { name: 'Triptona', vol1000: '5.0 g', vol500: '2.5 g', vol250: '1.25 g' },
                     { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
@@ -142,6 +149,7 @@
                 purpose: 'Medio sólido para bacterias marinas heterótrofas.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Agar Marino', vol1000: '55.1 g', vol500: '27.55 g', vol250: '13.78 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -159,6 +167,7 @@
                 purpose: 'Medio líquido para el cultivo de bacterias marinas heterótrofas.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Caldo Marino', vol1000: '37.4 g', vol500: '18.7 g', vol250: '9.35 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -177,6 +186,7 @@
                 purpose: 'Medio para aislamiento de hongos y levaduras.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Agar Sabouraud', vol1000: '65 g', vol500: '32.5 g', vol250: '16.25 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -194,6 +204,7 @@
                 purpose: 'Medio para cultivo de levaduras y mohos.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: ['Para inhibir el crecimiento bacteriano, el medio estéril y enfriado (45-50°C) puede ser acidificado con ácido tartárico estéril al 10%. No recalentar el medio tras la adición del ácido.'],
                 ingredients: [
                     { name: 'Polvo de PDA (Difco)', vol1000: '39 g', vol500: '19.5 g', vol250: '9.75 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -212,6 +223,7 @@
                 purpose: 'Medio enriquecido para Piscirickettsia salmonis.',
                 storage: '2-8°C, hasta 30 días.',
                 references: null,
+                notes: ['La adición de sangre debe ser aséptica y a la temperatura correcta (45-50°C) para no lisar los glóbulos rojos.'],
                 ingredients: [
                     { name: 'Agar Base Sangre', vol1000: '40 g', vol500: '20 g', vol250: '10 g' },
                     { name: 'Cloruro de Sodio', vol1000: '5 g', vol500: '2.5 g', vol250: '1.25 g' },
@@ -234,6 +246,7 @@
                 purpose: 'Medio selectivo para Renibacterium salmoninarum.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: ['El carbón activado puede dificultar la lectura de las colonias. Asegurar una buena iluminación al examinar las placas.'],
                 ingredients: [
                     { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
                     { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
@@ -258,6 +271,7 @@
                 purpose: 'Medio enriquecido para Renibacterium salmoninarum.',
                 storage: '2-8°C, hasta 30 días.',
                 references: null,
+                notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO para el crecimiento de R. salmoninarum.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
                     { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
                     { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
@@ -281,6 +295,7 @@
                 purpose: 'Medio líquido para el cultivo de R. salmoninarum.',
                 storage: '2-8°C, hasta 30 días.',
                 references: 'Evelyn (1977), Rhodes et al. (2008).',
+                notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO. El pH inicial es aprox. 5.15, por lo que el ajuste debe ser cuidadoso.', 'Las cantidades de NaOH 10N son estimaciones. Siempre verificar con medidor calibrado.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
                     { name: 'Peptona', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
                     { name: 'Extracto de levadura', vol1000: '0.5 g', vol500: '0.25 g', vol250: '0.125 g' },
@@ -291,7 +306,7 @@
                 ],
                 steps: [
                     'Disolver los polvos en el agua para análisis.',
-                    'Paso Crítico: Ajuste de pH. Medir el pH inicial (aprox. 5.15). Añadir lentamente el NaOH 10N estimado y ajustar hasta alcanzar 7.5 ± 0.1. Nota: La cantidad de NaOH es una estimación. Siempre verificar con medidor calibrado.',
+                    'Ajuste de pH (Paso Crítico): Medir pH inicial (aprox. 5.15). Añadir lentamente el NaOH 10N estimado y ajustar gota a gota hasta alcanzar 7.5 ± 0.1.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
                     'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',
                     'Mezclar y alicuotar si es necesario.'
@@ -303,6 +318,7 @@
                 purpose: 'Medio líquido para determinar la CIM de P. salmonis.',
                 storage: '4°C, máx. 10 días.',
                 references: 'Contreras-Lynch et al. (2017).',
+                notes: ['La Solución Stock se debe esterilizar por filtración, NUNCA en autoclave, ya que sus componentes son termolábiles.'],
                 ingredients: [
                     { name: 'TSB', vol1000: '25 g', vol500: '12.5 g', vol250: '6.25 g' },
                     { name: 'NaCl', vol1000: '15 g', vol500: '7.5 g', vol250: '3.75 g' },
@@ -323,6 +339,7 @@
                 purpose: 'Solución salina isotónica para diluciones.',
                 storage: 'Temp. ambiente, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Cloruro de Sodio (NaCl)', vol1000: '9 g', vol500: '4.5 g', vol250: '2.25 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -339,6 +356,7 @@
                 purpose: 'Medio líquido de enriquecimiento general.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -356,6 +374,7 @@
                 purpose: 'Medio líquido para microorganismos halófilos.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de TSB', vol1000: '30 g', vol500: '15 g', vol250: '7.5 g' },
                     { name: 'Cloruro de Sodio (NaCl)', vol1000: '10 g', vol500: '5 g', vol250: '2.5 g' },
@@ -374,6 +393,7 @@
                 purpose: 'Medio estándar para pruebas de sensibilidad.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
+                notes: [],
                 ingredients: [
                     { name: 'Polvo de Caldo MHCA', vol1000: '22 g', vol500: '11 g', vol250: '5.5 g' },
                     { name: 'Agua para análisis', vol1000: '1000 ml', vol500: '500 ml', vol250: '250 ml' }
@@ -438,6 +458,25 @@
             });
             stepsList += '</ol>';
             
+            let notesHTML = '';
+            if (media.notes && media.notes.length > 0) {
+                let notesList = '<ul class="list-disc list-inside space-y-1 mt-2">';
+                media.notes.forEach(note => {
+                    notesList += `<li>${note}</li>`;
+                });
+                notesList += '</ul>';
+
+                notesHTML = `
+                    <div class="mt-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg">
+                        <h4 class="font-bold flex items-center">
+                            <span class="text-xl mr-2">⚠️</span>
+                            Consideraciones Importantes
+                        </h4>
+                        ${notesList}
+                    </div>
+                `;
+            }
+
             let referencesHTML = media.references ? `<div class="mt-4 pt-4 border-t border-gray-200">
                 <h4 class="font-semibold text-gray-700">Referencias:</h4>
                 <p class="text-sm text-gray-600 italic">${media.references}</p>
@@ -457,6 +496,8 @@
                         <h3 class="text-xl font-bold mb-2 text-[#005cb8]">Procedimiento</h3>
                         ${stepsList}
                     </div>
+                    
+                    ${notesHTML}
 
                     <div class="mt-6 bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-r-lg">
                         <h4 class="font-bold">Almacenamiento y Vida Útil</h4>
