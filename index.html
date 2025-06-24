@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Guía de Medios">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/007bff/FFFFFF/png?text=🦠&font=noto">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' rx='22' fill='%23007bff'/%3e%3cpath fill='%23ffffff' d='M50,15A35,35,0,0,0,15,50A35,35,0,0,0,50,85A35,35,0,0,0,85,50A35,35,0,0,0,50,15Zm0,5A30,30,0,0,1,80,50A30,30,0,0,1,50,80A30,30,0,0,1,20,50A30,30,0,0,1,50,20Z'/%3e%3ccircle cx='40' cy='45' r='5' fill='%23ffffff'/%3e%3ccircle cx='63' cy='42' r='7' fill='%23ffffff'/%3e%3ccircle cx='55' cy='65' r='6' fill='%23ffffff'/%3e%3ccircle cx='38' cy='62' r='4' fill='%23ffffff'/%3e%3c/svg%3e">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -404,6 +404,26 @@
                     'Verificar pH en 7.3 ± 0.1.',
                     'Esterilizar según el procedimiento estándar general.',
                     'Enfriar y alicuotar.'
+                ]
+            },
+            {
+                name: 'Solución Stock (L-Cisteína/D-Glucosa)',
+                id: 'solucion-stock-ifop',
+                purpose: 'Suplemento estéril para Caldo IFOP PsM11.',
+                storage: '2-8°C.',
+                references: null,
+                notes: ['Esta solución DEBE ser esterilizada por filtración (membrana de 0.22 µm). NUNCA autoclavar.', 'Realizar todo el procedimiento bajo Campana de Flujo Laminar.'],
+                ingredients: [
+                    { name: 'L-Cisteína HCl', vol1000: 'N/A', vol500: '10 g', vol250: 'N/A' },
+                    { name: 'D-Glucosa', vol1000: 'N/A', vol500: '100 g', vol250: 'N/A' },
+                    { name: 'Agua para análisis estéril', vol1000: 'N/A', vol500: 'c.s.p. 500 ml', vol250: 'N/A' }
+                ],
+                steps: [
+                    'Pesar y añadir los solutos a una botella estéril.',
+                    'Aforar a 500 ml con agua para análisis estéril.',
+                    'Agitar suavemente hasta disolver.',
+                    'Esterilizar por filtración.',
+                    'Dispensar en alícuotas estériles.'
                 ]
             }
         ];
