@@ -9,11 +9,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Guía de Medios">
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/007bff/FFFFFF/png?text=🧪&font=noto">
+    <!-- Self-Contained SVG Icon to prevent external loading issues -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23005cb8'/%3E%3Ctext y='0.9em' font-size='90'%3E🧪%3C/text%3E%3C/svg%3E">
+    <link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;Guía de Medios&quot;,&quot;short_name&quot;:&quot;GuíaMedios&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;scope&quot;:&quot;/&quot;,&quot;background_color&quot;:&quot;#f0f4f8&quot;,&quot;theme_color&quot;:&quot;#00428d&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23005cb8'/%3E%3Ctext y='0.9em' font-size='90'%3E🧪%3C/text%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23005cb8'/%3E%3Ctext y='0.9em' font-size='90'%3E🧪%3C/text%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}">
     <meta name="theme-color" id="theme-color-meta" content="#00428d">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,7 +38,7 @@
             -webkit-tap-highlight-color: transparent;
             display: flex;
             flex-direction: column;
-            background-color: var(--main-bg-dark); /* Changed to match main content */
+            background-color: var(--main-bg-dark);
             transition: background-color 0.3s ease;
         }
         body.light-mode { background-color: var(--main-bg-light); }
@@ -70,12 +72,11 @@
         main footer {
             text-align: center;
             padding-top: 1rem;
-            padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)); /* Safe area for home bar */
+            padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
             color: #6b7280;
             font-size: 0.75rem;
         }
 
-        /* Visual Improvements */
         .content-card {
             background-color: var(--card-bg-dark);
             color: #1f2937;
@@ -107,9 +108,9 @@
             margin-right: 15px; display: flex; align-items: center; justify-content: center;
             transition: all 0.2s ease-in-out; flex-shrink: 0;
         }
-        .checklist-item .checkbox-custom .fa-check { transform: scale(0); transition: all 0.2s ease-in-out; color: white; font-size: 14px; }
+        .checklist-item .checkbox-custom .check-icon { transform: scale(0); transition: all 0.2s ease-in-out; color: white; }
         .checklist-item.completed .checkbox-custom { background-color: #22c55e; border-color: #22c55e; }
-        .checklist-item.completed .checkbox-custom .fa-check { transform: scale(1); }
+        .checklist-item.completed .checkbox-custom .check-icon { transform: scale(1); }
         .checklist-item.completed label { text-decoration: line-through; color: #6b7280; }
 
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; }
@@ -118,7 +119,6 @@
         .accent-btn { background-color: var(--accent-color); }
         .accent-btn:hover { background-color: var(--accent-color-hover); }
 
-        /* Tooltip for thermolabile info */
         .info-icon { position: relative; cursor: pointer; }
         .info-icon .tooltip {
             visibility: hidden; opacity: 0;
@@ -127,10 +127,7 @@
             position: absolute; z-index: 1; bottom: 125%; left: 50%;
             margin-left: -100px; transition: opacity 0.3s, visibility 0.3s;
         }
-        .info-icon .tooltip.visible {
-            visibility: visible;
-            opacity: 1;
-        }
+        .info-icon .tooltip.visible { visibility: visible; opacity: 1; }
         .info-icon .tooltip::after {
             content: ""; position: absolute; top: 100%; left: 50%;
             margin-left: -5px; border-width: 5px; border-style: solid;
@@ -142,26 +139,16 @@
 
     <div id="app-container">
         <header class="app-header p-4 shadow-lg z-10 flex justify-between items-center">
-            <button id="theme-toggle-btn" class="interactive-btn text-xl p-2 rounded-full w-10 h-10 flex items-center justify-center">
-                <i class="fas fa-sun"></i>
-            </button>
+            <button id="theme-toggle-btn" class="interactive-btn text-xl p-2 rounded-full w-10 h-10 flex items-center justify-center"></button>
             <h1 class="text-xl md:text-2xl font-bold text-center">Guía de Preparación</h1>
-            <button id="compendium-toggle-btn" class="interactive-btn text-xl p-2 rounded-full w-10 h-10 flex items-center justify-center">
-                 <i class="fa-solid fa-book-open"></i>
-            </button>
+            <button id="compendium-toggle-btn" class="interactive-btn text-xl p-2 rounded-full w-10 h-10 flex items-center justify-center"></button>
         </header>
 
-        <div id="controls-section">
-             <!-- Content of this div will be dynamic -->
-        </div>
+        <div id="controls-section"></div>
 
         <main>
-            <div id="procedure-view">
-                <!-- Procedure cards will be injected here -->
-            </div>
-            <div id="compendium-view" class="hidden">
-                 <!-- Reagent compendium will be injected here -->
-            </div>
+            <div id="procedure-view"></div>
+            <div id="compendium-view" class="hidden"></div>
             <footer>
                 <p>Manual de Procedimientos v2.0</p>
             </footer>
@@ -247,14 +234,12 @@
             const currentSelection = mediaSelect.value;
             mediaSelect.innerHTML = '';
             
-            if (!filter) {
-                const placeholder = document.createElement('option');
-                placeholder.value = "";
-                placeholder.textContent = "-- Seleccione un procedimiento --";
-                placeholder.disabled = true;
-                placeholder.selected = true;
-                mediaSelect.appendChild(placeholder);
-            }
+            const placeholder = document.createElement('option');
+            placeholder.value = "";
+            placeholder.textContent = "-- Seleccione un procedimiento --";
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            mediaSelect.appendChild(placeholder);
 
             filteredMedia.sort((a, b) => a.name.localeCompare(b.name));
             filteredMedia.forEach(media => {
@@ -264,13 +249,8 @@
                 mediaSelect.appendChild(option);
             });
 
-            if (filteredMedia.find(m => m.id === currentSelection)) {
+            if (filteredMedia.some(m => m.id === currentSelection)) {
                 mediaSelect.value = currentSelection;
-            } else if (filteredMedia.length > 0 && !isCompendiumVisible) {
-                renderProcedure(filteredMedia[0].id);
-                mediaSelect.value = filteredMedia[0].id;
-            } else if (filteredMedia.length === 0) {
-                 procedureView.innerHTML = '<div class="content-card text-center text-gray-500"><p>No se encontraron medios.</p></div>';
             }
         }
 
@@ -283,9 +263,9 @@
                 if (!media) {
                      procedureView.innerHTML = `
                         <div class="content-card text-center p-8 fade-in">
-                            <h2 class="text-2xl font-bold text-[#00428d] mb-4">Bienvenido a la Guía de Medios</h2>
-                            <p class="text-gray-600">Seleccione un procedimiento del menú superior para comenzar.</p>
-                            <i class="fas fa-flask-vial text-6xl text-gray-300 mt-6"></i>
+                            <h2 class="text-2xl font-bold text-[#00428d] mb-2">Bienvenido a la Guía de Medios</h2>
+                            <p class="text-gray-600 mb-4">El propósito de esta aplicación es servir como una guía digital e interactiva para la preparación estandarizada de medios de cultivo, asegurando la calidad y consistencia para garantizar resultados confiables.</p>
+                            <p class="text-gray-500">Seleccione un procedimiento del menú superior para comenzar.</p>
                         </div>`;
                     return;
                 }
@@ -438,14 +418,12 @@
                 procedureView.classList.remove('hidden');
                 compendiumView.classList.add('hidden');
                 controlsSection.innerHTML = procedureControlsTemplate;
-                populateSelect();
                 const searchBox = document.getElementById('search-box');
                 const mediaSelect = document.getElementById('media-select');
-                if (searchBox && mediaSelect) {
-                    searchBox.addEventListener('input', (e) => populateSelect(e.target.value));
-                    mediaSelect.addEventListener('change', (e) => renderProcedure(e.target.value));
-                }
-                renderProcedure(mediaSelect ? mediaSelect.value : null);
+                populateSelect();
+                searchBox.addEventListener('input', (e) => populateSelect(e.target.value));
+                mediaSelect.addEventListener('change', (e) => renderProcedure(e.target.value));
+                renderProcedure(null);
             }
         }
         
