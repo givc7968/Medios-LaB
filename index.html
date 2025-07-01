@@ -178,10 +178,10 @@
     <script>
         const mediaDatabase = [
             {
-                name: 'Agar Tripticasa de Soya (TSA)',
+                name: '7.1 Agar Tripticasa de Soya (TSA)',
                 id: 'tsa',
-                purpose: 'Medio de cultivo general y adecuado para el crecimiento de Aeromonas / Pseudomonas.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio de cultivo general para el aislamiento de una amplia variedad de microorganismos.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -191,15 +191,15 @@
                 steps: [
                     'Disolver el polvo en el agua para análisis. Aplicar calor suave si es necesario.',
                     'Verificar que el pH esté en el rango 7.2 - 7.4.',
-                    'Esterilizar según el procedimiento estándar general.',
+                    'Esterilizar según el procedimiento estándar general (121°C por 15 min).',
                     'Enfriar a 45-50°C y dispensar en placas de Petri.'
                 ]
             },
             {
-                name: 'Agar Tripticasa de Soya Sal (TSA/SAL)',
+                name: '7.2 Agar Tripticasa de Soya Sal (TSA/SAL)',
                 id: 'tsa-sal',
-                purpose: 'Medio de cultivo general salino y adecuado para el crecimiento de Aeromonas / Vibrios.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio para patógenos de ambiente salino.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -215,10 +215,10 @@
                 ]
             },
             {
-                name: 'Agar TYES',
+                name: '7.3 Agar TYES',
                 id: 'tyes',
-                purpose: 'Medio adecuado para el crecimiento de Flavobacterias.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio para el crecimiento de Flavobacterium psychrophilum.',
+                storage: '2-8°C, hasta 90 días.',
                 references: 'Holt, R. A. (1987).',
                 notes: [],
                 ingredients: [
@@ -237,10 +237,10 @@
                 ]
             },
             {
-                name: 'Agar MAOA (Anacker y Ordal Modificado)',
+                name: '7.4 Agar MAOA (Anacker y Ordal Modificado)',
                 id: 'maoa',
-                purpose: 'Medio adecuado para el crecimiento de Flavobacterias.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio para especies de Flavobacterium.',
+                storage: '2-8°C, hasta 90 días.',
                 references: 'Crump et al. (2001).',
                 notes: [],
                 ingredients: [
@@ -259,10 +259,10 @@
                 ]
             },
             {
-                name: 'Agar Marino',
+                name: '7.5 Agar Marino',
                 id: 'agar-marino',
-                purpose: 'Medio adecuado para el crecimiento de Tenacibaculum.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio sólido para bacterias marinas heterótrofas.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -270,17 +270,17 @@
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver el polvo en el agua para análisis. Aplicar calor suave si es necesario.',
-                    'Verificar que el pH esté en el rango 7.6 ± 0.2.',
+                    'Disolver el polvo en el agua para análisis con agitación y calor suave.',
+                    'Verificar que el pH esté en 7.6 ± 0.2.',
                     'Esterilizar según el procedimiento estándar general.',
                     'Enfriar a 45-50°C y dispensar en placas.'
                 ]
             },
             {
-                name: 'Caldo Marino (Marine Broth 2216)',
+                name: '7.6 Caldo Marino (Marine Broth 2216)',
                 id: 'caldo-marino',
-                purpose: 'Medio líquido adecuado para el crecimiento de Tenacibaculum.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio líquido para el cultivo de bacterias marinas heterótrofas.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -288,17 +288,18 @@
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
-                    'Suspender el polvo en el agua para análisis. Hervir por 1 minuto con agitación.',
-                    'Verificar que el pH esté en el rango 7.6 ± 0.2.',
+                    'Suspender el polvo en el agua para análisis.',
+                    'Calentar con agitación frecuente y hervir durante 1 minuto para disolver.',
+                    'Verificar que el pH final esté en el rango 7.6 ± 0.2.',
                     'Esterilizar según el procedimiento estándar general.',
                     'Enfriar y alicuotar si es necesario.'
                 ]
             },
             {
-                name: 'Agar Sabouraud Dextrosa',
+                name: '7.7 Agar Sabouraud Dextrosa',
                 id: 'sabouraud',
-                purpose: 'Medio adecuado para el crecimiento de hongos y levaduras.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio para aislamiento de hongos y levaduras.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -306,58 +307,59 @@
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver el polvo en el agua para análisis. Aplicar calor suave si es necesario.',
+                    'Disolver el polvo en el agua para análisis con agitación y calor suave.',
                     'Verificar y ajustar pH a 5.6 ± 0.2.',
                     'Esterilizar según el procedimiento estándar general.',
                     'Enfriar a 45-50°C y dispensar en placas.'
                 ]
             },
             {
-                name: 'Agar Papa Dextrosa (PDA)',
+                name: '7.8 Agar Papa Dextrosa (PDA)',
                 id: 'pda',
-                purpose: 'Medio adecuado para el crecimiento de hongos y levaduras.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio para cultivo de levaduras y mohos.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
-                notes: [],
+                notes: ['Para inhibir el crecimiento bacteriano, el medio estéril y enfriado (45-50°C) puede ser acidificado con ácido tartárico estéril al 10%. No recalentar el medio tras la adición del ácido.'],
                 ingredients: [
                     { name: 'Polvo de PDA (Difco)', base_vol: 1000, base_qty: 39, unit: 'g' },
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
-                    'Suspender el polvo en el agua. Hervir por 1 minuto con agitación.',
-                    'Verificar que el pH esté en el rango 5.6 ± 0.2.',
+                    'Suspender el polvo en el agua.',
+                    'Calentar con agitación y hervir por 1 minuto para disolver.',
+                    'Verificar que el pH esté en 5.6 ± 0.2.',
                     'Esterilizar según el procedimiento estándar general.',
                     'Enfriar a 45-50°C y dispensar en placas.'
                 ]
             },
             {
-                name: 'Agar P. salmonis',
-                id: 'p-salmonis',
+                name: '7.9 Agar P. salmonis',
+                id: 'agar-p-salmonis',
                 purpose: 'Medio adecuado para el crecimiento de Piscirickettsia salmonis.',
-                storage: '2-8°C, 30 días.',
+                storage: '2-8°C, hasta 30 días.',
                 references: null,
-                notes: ['La adición de sangre debe ser aséptica y a la temperatura correcta (45-50°C) para no lisar los glóbulos rojos.'],
+                notes: ['La cantidad de NaOH es una estimación, siempre verificar con medidor de pH.', 'La sangre es termolábil. Añadir al medio base enfriado.'],
                 ingredients: [
                     { name: 'Agar Base Sangre', base_vol: 960, base_qty: 40, unit: 'g' },
-                    { name: 'Cloruro de Sodio', base_vol: 960, base_qty: 5, unit: 'g' },
+                    { name: 'NaCl', base_vol: 960, base_qty: 5, unit: 'g' },
                     { name: 'L-Cisteína', base_vol: 960, base_qty: 1, unit: 'g' },
-                    { name: 'NaOH 10N (estimado)', base_vol: 960, base_qty: 200, unit: 'µL' },
+                    { name: 'NaOH 10N', base_vol: 960, base_qty: 0.2, unit: 'ml' },
                     { name: 'Agua para análisis', base_vol: 960, base_qty: 960, unit: 'ml' },
                     { name: 'Sangre desfibrinada', base_vol: 960, base_qty: 40, unit: 'ml' }
                 ],
                 steps: [
                     'Disolver los polvos en el agua para análisis. Aplicar calor suave si es necesario.',
-                    'Añadir el NaOH estimado y verificar con pHmetro hasta alcanzar 6.7 ± 0.1. Nota: Cantidad de NaOH es una estimación.',
+                    'Añadir el NaOH estimado y verificar con pHmetro hasta alcanzar 6.7 ± 0.1.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
                     'Enfriar a 45-50°C y añadir asépticamente la sangre.',
                     'Mezclar suavemente y dispensar en placas.'
                 ]
             },
             {
-                name: 'Agar KDM-C',
+                name: '7.10 Agar KDM-C (con Carbón)',
                 id: 'kdm-c',
-                purpose: 'Medio adecuado para el crecimiento de Renibacterium salmoninarum.',
-                storage: '2-8°C, 90 días.',
+                purpose: 'Medio selectivo para Renibacterium salmoninarum.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: ['El carbón activado puede dificultar la lectura de las colonias. Asegurar una buena iluminación al examinar las placas.'],
                 ingredients: [
@@ -365,55 +367,55 @@
                     { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.5, unit: 'g' },
                     { name: 'Carbón activado', base_vol: 1000, base_qty: 1, unit: 'g' },
                     { name: 'L-cisteína', base_vol: 1000, base_qty: 1, unit: 'g' },
-                    { name: 'NaOH 10N', base_vol: 1000, base_qty: 600, unit: 'µL' },
+                    { name: 'NaOH 10N', base_vol: 1000, base_qty: 0.6, unit: 'ml' },
                     { name: 'Agar', base_vol: 1000, base_qty: 15, unit: 'g' },
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' },
                     { name: 'Amphotericin B', base_vol: 1000, base_qty: 1, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver los componentes (excepto Amphotericin B) en agua. Aplicar calor suave.',
-                    'Añadir el NaOH y verificar que el pH esté en 7.2 - 7.4.',
+                    'Disolver los componentes (excepto Amphotericin B) en agua para análisis con agitación y calor.',
+                    'Añadir el NaOH 10N y verificar que el pH final esté en el rango 7.2 - 7.4.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
-                    'Enfriar a 45-50°C y añadir asépticamente la Amphotericin B.',
+                    'Enfriar a 45-50°C y añadir la Amphotericin B asépticamente.',
                     'Mezclar y dispensar en placas.'
                 ]
             },
             {
-                name: 'Agar KDM-2',
+                name: '7.11 Agar KDM-2 (con Suero)',
                 id: 'kdm2-agar',
-                purpose: 'Medio adecuado para el crecimiento de Renibacterium salmoninarum.',
-                storage: '2-8°C, 30 días.',
+                purpose: 'Medio enriquecido para Renibacterium salmoninarum.',
+                storage: '2-8°C, hasta 30 días.',
                 references: null,
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO para el crecimiento de R. salmoninarum.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
                     { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
                     { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
                     { name: 'L-Cisteína', base_vol: 900, base_qty: 1, unit: 'g' },
-                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 0.424, unit: 'ml' },
                     { name: 'Agar', base_vol: 900, base_qty: 15, unit: 'g' },
                     { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
                     { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver los componentes (excepto SFB) en agua. Aplicar calor suave.',
-                    'Añadir el NaOH estimado y verificar con pHmetro hasta alcanzar 7.5 ± 0.1. Nota: Cantidad de NaOH es una estimación.',
+                    'Disolver los componentes (excepto SFB) en agua para análisis con agitación y calor.',
+                    'Añadir lentamente la cantidad estimada de NaOH 10N y verificar con un medidor de pH hasta alcanzar un pH de 7.5 ± 0.1. Nota: Las cantidades son estimaciones y pueden variar.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
-                    'Enfriar a 45-50°C y añadir asépticamente el Suero Fetal Bovino.',
+                    'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',
                     'Mezclar y dispensar en placas.'
                 ]
             },
             {
-                name: 'Caldo KDM-2',
+                name: '7.12 Caldo KDM-2 Líquido',
                 id: 'kdm2-broth',
-                purpose: 'Medio líquido adecuado para el crecimiento de Renibacterium salmoninarum.',
-                storage: '2-8°C, 30 días.',
+                purpose: 'Medio líquido para el cultivo de R. salmoninarum.',
+                storage: '2-8°C, hasta 30 días.',
                 references: 'Evelyn (1977), Rhodes et al. (2008).',
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO. El pH inicial es aprox. 5.15, por lo que el ajuste debe ser cuidadoso.', 'Las cantidades de NaOH 10N son estimaciones. Siempre verificar con medidor calibrado.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
                     { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
                     { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
                     { name: 'L-Cisteína HCl', base_vol: 900, base_qty: 0.5, unit: 'g' },
-                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 0.424, unit: 'ml' },
                     { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
                     { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
                 ],
@@ -426,9 +428,9 @@
                 ]
             },
             {
-                name: 'Caldo IFOP PsM11',
+                name: '7.13 Caldo IFOP PsM11',
                 id: 'ifop-psm11',
-                purpose: 'Medio líquido adecuado para el crecimiento de Piscirickettsia salmonis en determinación de CIM.',
+                purpose: 'Medio líquido para determinar la CIM de P. salmonis.',
                 storage: '4°C, máx. 10 días.',
                 references: 'Contreras-Lynch et al. (2017).',
                 notes: ['La Solución Stock se debe esterilizar por filtración, NUNCA en autoclave, ya que sus componentes son termolábiles.'],
@@ -447,10 +449,10 @@
                 ]
             },
             {
-                name: 'Suero Fisiológico (Solución Salina 0.9%)',
+                name: '7.14 Suero Fisiológico (Solución Salina 0.9%)',
                 id: 'suero-fisiologico',
                 purpose: 'Solución salina isotónica para diluciones.',
-                storage: 'Temp. ambiente, 90 días.',
+                storage: 'Temp. ambiente, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
@@ -464,7 +466,7 @@
                 ]
             },
             {
-                name: 'Caldo Tripticasa de Soya (TSB)',
+                name: '7.15 Caldo Tripticasa de Soya (TSB)',
                 id: 'tsb-broth',
                 purpose: 'Medio líquido de enriquecimiento general.',
                 storage: '2-8°C, hasta 90 días.',
@@ -482,9 +484,9 @@
                 ]
             },
             {
-                name: 'Caldo Tripticasa de Soya Sal (TSB/SAL)',
+                name: '7.16 Caldo Tripticasa de Soya Sal (TSB/SAL)',
                 id: 'tsb-sal-broth',
-                purpose: 'Medio líquido de enriquecimiento general para bacterias marinas.',
+                purpose: 'Medio líquido para microorganismos halófilos.',
                 storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
@@ -501,14 +503,14 @@
                 ]
             },
             {
-                name: 'Caldo Mueller Hinton II Ajustado con Cationes (MHCA)',
+                name: '7.17 Caldo Mueller Hinton II Ajustado con Cationes (MHCA)',
                 id: 'mhca',
                 purpose: 'Medio estándar para pruebas de sensibilidad.',
-                storage: '2-8°C, 90 días.',
+                storage: '2-8°C, hasta 90 días.',
                 references: null,
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo de MHCA', base_vol: 1000, base_qty: 22, unit: 'g' },
+                    { name: 'Polvo de Caldo MHCA', base_vol: 1000, base_qty: 22, unit: 'g' },
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
@@ -520,9 +522,9 @@
                 ]
             },
             {
-                name: 'Caldo Mueller-Hinton Diluido (1:7) con Suplementos Iónicos',
-                id: 'mh-diluido-ionico',
-                purpose: 'Medio líquido diluido para pruebas de CMI en Tenacibaculum spp.',
+                name: '7.18 Caldo Mueller-Hinton Diluido (1:7) Suplementado con Iones Inorgánicos',
+                id: 'mh-diluted',
+                purpose: 'Medio líquido diluido para pruebas de CMI en Tenacibaculum.',
                 storage: '2-8°C, protegido de la luz.',
                 references: 'CLSI VET04-A2 (2014).',
                 notes: [],
@@ -535,22 +537,22 @@
                     { name: 'Agua para análisis', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver todos los componentes sólidos directamente en el 80% del volumen final de agua para análisis, agitando hasta disolver.',
-                    'Aforar al volumen final con agua. Homogeneizar.',
-                    'Verificar que el pH esté en el rango 7.2 - 7.4. Ajustar si es necesario.',
+                    'Disolver todos los componentes sólidos directamente en el 80% del volumen final de agua.',
+                    'Transferir a un matraz aforado y completar el volumen final con agua. Homogeneizar.',
+                    'Verificar que el pH esté en el rango 7.2 - 7.4.',
                     'Esterilizar en autoclave según el procedimiento estándar general.',
                     'Enfriar y alicuotar en recipientes estériles si es necesario.'
                 ]
             },
             {
-                name: 'Caldo Mueller Hinton Cationes Ajustados Diluido (4g/L)',
-                id: 'mhca-diluido',
+                name: '7.19 Caldo Mueller Hinton Cationes Ajustados Diluido (4g/L)',
+                id: 'mhca-diluted',
                 purpose: 'Medio líquido diluido para pruebas de CMI en Flavobacterium.',
                 storage: '2-8°C, hasta 4 semanas.',
                 references: 'CLSI VET04-A2 (2014).',
                 notes: [],
                 ingredients: [
-                    { name: 'Polvo Mueller Hinton II', base_vol: 1000, base_qty: 4.0, unit: 'g' },
+                    { name: 'CAMHB en polvo', base_vol: 1000, base_qty: 4.0, unit: 'g' },
                     { name: 'Agua Purificada', base_vol: 1000, base_qty: 1000, unit: 'ml' }
                 ],
                 steps: [
@@ -561,16 +563,16 @@
                 ]
             },
             {
-                name: 'Solución Stock (L-Cisteína/D-Glucosa)',
+                name: '8.1 Solución Stock (L-Cisteína/D-Glucosa)',
                 id: 'solucion-stock-ifop',
                 purpose: 'Suplemento estéril para Caldo IFOP PsM11.',
                 storage: '2-8°C.',
                 references: null,
                 notes: ['Esta solución DEBE ser esterilizada por filtración (membrana de 0.22 µm). NUNCA autoclavar.', 'Realizar todo el procedimiento bajo Campana de Flujo Laminar.'],
                 ingredients: [
-                    { name: 'L-Cisteína HCl', vol1000: 'N/A', vol500: '10 g', vol250: 'N/A' },
-                    { name: 'D-Glucosa', vol1000: 'N/A', vol500: '100 g', vol250: 'N/A' },
-                    { name: 'Agua para análisis estéril', vol1000: 'N/A', vol500: 'c.s.p. 500 ml', vol250: 'N/A' }
+                    { name: 'L-Cisteína HCl', base_vol: 500, base_qty: 10, unit: 'g' },
+                    { name: 'D-Glucosa', base_vol: 500, base_qty: 100, unit: 'g' },
+                    { name: 'Agua para análisis estéril', base_vol: 500, base_qty: 500, unit: 'ml' }
                 ],
                 steps: [
                     'Pesar y añadir los solutos a una botella estéril.',
@@ -596,7 +598,19 @@
 
         function populateSelect(filter = '') {
             const filteredMedia = mediaDatabase.filter(media => media.name.toLowerCase().includes(filter.toLowerCase()));
+            const currentSelection = selectElement.value;
             selectElement.innerHTML = '';
+            
+            // Add a placeholder/welcome option if no filter is active
+            if (!filter) {
+                const placeholder = document.createElement('option');
+                placeholder.value = "";
+                placeholder.textContent = "-- Seleccione un procedimiento --";
+                placeholder.disabled = true;
+                placeholder.selected = true;
+                selectElement.appendChild(placeholder);
+            }
+
             filteredMedia.sort((a, b) => a.name.localeCompare(b.name));
             filteredMedia.forEach(media => {
                 const option = document.createElement('option');
@@ -604,22 +618,33 @@
                 option.textContent = media.name;
                 selectElement.appendChild(option);
             });
-            if (filteredMedia.length > 0) {
-                 renderProcedure(selectElement.value);
+
+            if (filteredMedia.find(m => m.id === currentSelection)) {
+                selectElement.value = currentSelection;
+            } else if (filteredMedia.length > 0) {
+                renderProcedure(filteredMedia[0].id);
+                selectElement.value = filteredMedia[0].id;
             } else {
                  displayElement.innerHTML = '<p class="text-center text-gray-500">No se encontraron medios.</p>';
             }
         }
         
         function formatNumber(num) {
-            return Number.isInteger(num) ? num : num.toFixed(2);
+            // This function formats numbers to 2 decimal places only if they are not integers.
+            return Number.isInteger(num) ? num : parseFloat(num.toFixed(3));
         }
 
         function renderProcedure(mediaId) {
             const media = mediaDatabase.find(m => m.id === mediaId);
             currentMediaForCalculator = media;
             if (!media) {
-                displayElement.innerHTML = '<p>Procedimiento no encontrado.</p>';
+                 displayElement.innerHTML = `
+                    <div class="text-center p-8">
+                        <h2 class="text-2xl font-bold text-[#00428d] mb-4">Bienvenido a la Guía de Medios</h2>
+                        <p class="text-gray-600">Seleccione un procedimiento del menú superior para comenzar.</p>
+                        <i class="fas fa-flask-vial text-6xl text-gray-300 mt-6"></i>
+                    </div>
+                 `;
                 return;
             }
 
@@ -628,24 +653,17 @@
                     <thead>
                         <tr>
                             <th class="table-cell table-header">Componente</th>
-                            <th class="table-cell table-header">Para 1000 ml</th>
-                            <th class="table-cell table-header">Para 500 ml</th>
-                            <th class="table-cell table-header">Para 250 ml</th>
+                            <th class="table-cell table-header text-right">Cantidad Base</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             media.ingredients.forEach(ing => {
-                const vol1000 = ing.vol1000 || (ing.base_qty !== undefined ? `${formatNumber(ing.base_qty)} ${ing.unit}` : 'N/A');
-                const vol500 = ing.vol500 || (ing.base_qty !== undefined ? `${formatNumber(ing.base_qty * (500 / (ing.base_vol || 1000)))} ${ing.unit}`: 'N/A');
-                const vol250 = ing.vol250 || (ing.base_qty !== undefined ? `${formatNumber(ing.base_qty * (250 / (ing.base_vol || 1000)))} ${ing.unit}`: 'N/A');
-
+                const baseAmount = `${formatNumber(ing.base_qty)} ${ing.unit}`;
                 ingredientsTable += `
                     <tr>
                         <td class="table-cell font-semibold">${ing.name}</td>
-                        <td class="table-cell">${vol1000}</td>
-                        <td class="table-cell">${vol500}</td>
-                        <td class="table-cell">${vol250}</td>
+                        <td class="table-cell text-right">${baseAmount} (para ${ing.base_vol}ml)</td>
                     </tr>
                 `;
             });
@@ -656,7 +674,7 @@
                 stepsList += `
                     <li class="checklist-item" data-step="${index}">
                         <input type="checkbox" id="step-${index}" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        <label for="step-${index}" class="text-gray-700 leading-relaxed">${step}</label>
+                        <label for="step-${index}" class="ml-3 text-gray-700 leading-relaxed">${step}</label>
                     </li>
                 `;
             });
@@ -793,6 +811,7 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             populateSelect();
+            renderProcedure(null); // Show welcome message on start
             const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
         });
