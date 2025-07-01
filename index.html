@@ -247,14 +247,12 @@
             const currentSelection = mediaSelect.value;
             mediaSelect.innerHTML = '';
             
-            if (!filter) {
-                const placeholder = document.createElement('option');
-                placeholder.value = "";
-                placeholder.textContent = "-- Seleccione un procedimiento --";
-                placeholder.disabled = true;
-                placeholder.selected = true;
-                mediaSelect.appendChild(placeholder);
-            }
+            const placeholder = document.createElement('option');
+            placeholder.value = "";
+            placeholder.textContent = "-- Seleccione un procedimiento --";
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            mediaSelect.appendChild(placeholder);
 
             filteredMedia.sort((a, b) => a.name.localeCompare(b.name));
             filteredMedia.forEach(media => {
@@ -264,13 +262,8 @@
                 mediaSelect.appendChild(option);
             });
 
-            if (filteredMedia.find(m => m.id === currentSelection)) {
+            if (filteredMedia.some(m => m.id === currentSelection)) {
                 mediaSelect.value = currentSelection;
-            } else if (filteredMedia.length > 0 && !isCompendiumVisible) {
-                renderProcedure(filteredMedia[0].id);
-                mediaSelect.value = filteredMedia[0].id;
-            } else if (filteredMedia.length === 0) {
-                 procedureView.innerHTML = '<div class="content-card text-center text-gray-500"><p>No se encontraron medios.</p></div>';
             }
         }
 
@@ -283,9 +276,10 @@
                 if (!media) {
                      procedureView.innerHTML = `
                         <div class="content-card text-center p-8 fade-in">
-                            <h2 class="text-2xl font-bold text-[#00428d] mb-4">Bienvenido a la Guía de Medios</h2>
-                            <p class="text-gray-600">Seleccione un procedimiento del menú superior para comenzar.</p>
-                            <i class="fas fa-flask-vial text-6xl text-gray-300 mt-6"></i>
+                            <h2 class="text-2xl font-bold text-[#00428d] mb-2">Bienvenido a la Guía de Medios</h2>
+                            <p class="text-gray-600 mb-4">El propósito de esta aplicación es servir como una guía digital e interactiva para la preparación estandarizada de medios de cultivo, asegurando la calidad y consistencia para garantizar resultados confiables.</p>
+                            <p class="text-gray-500">Seleccione un procedimiento del menú superior para comenzar.</p>
+                            <i class="fas fa-bacteria text-6xl text-gray-300 mt-6"></i>
                         </div>`;
                     return;
                 }
@@ -438,14 +432,11 @@
                 procedureView.classList.remove('hidden');
                 compendiumView.classList.add('hidden');
                 controlsSection.innerHTML = procedureControlsTemplate;
-                populateSelect();
                 const searchBox = document.getElementById('search-box');
                 const mediaSelect = document.getElementById('media-select');
-                if (searchBox && mediaSelect) {
-                    searchBox.addEventListener('input', (e) => populateSelect(e.target.value));
-                    mediaSelect.addEventListener('change', (e) => renderProcedure(e.target.value));
-                }
-                renderProcedure(mediaSelect ? mediaSelect.value : null);
+                populateSelect();
+                searchBox.addEventListener('input', (e) => populateSelect(e.target.value));
+                mediaSelect.addEventListener('change', (e) => renderProcedure(e.target.value));
             }
         }
         
@@ -495,6 +486,7 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             toggleView(false); // Start with procedure view
+            renderProcedure(null); // Show welcome message on start
             const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
         });
