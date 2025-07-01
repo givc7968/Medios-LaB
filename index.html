@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Guía de Preparación de Medios</title>
     
-    <!-- PWA-specific meta tags for iOS -->
+    <!-- PWA-specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Guía de Medios">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/007bff/FFFFFF/png?text=🧪&font=noto">
+    <meta name="theme-color" id="theme-color-meta" content="#00428d">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,25 +19,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #003b7a;
             --header-dark: #00428d;
-            --text-dark: #e0f2fe;
-            --select-label-dark: #sky-200;
             --main-bg-dark: #f0f4f8;
             --card-bg-dark: #ffffff;
-            --card-text-dark: #1f2937;
-            --header-text-dark: #ffffff;
             --accent-color: #f97316;
             --accent-color-hover: #ea580c;
 
-            --bg-light: #f3f4f6;
             --header-light: #ffffff;
-            --text-light: #111827;
-            --select-label-light: #4b5563;
             --main-bg-light: #f9fafb;
             --card-bg-light: #ffffff;
-            --card-text-light: #1f2937;
-            --header-text-light: #1f2937;
         }
 
         html, body { height: 100%; overflow: hidden; }
@@ -45,21 +36,21 @@
             -webkit-tap-highlight-color: transparent;
             display: flex;
             flex-direction: column;
-            background-color: var(--bg-dark);
+            background-color: var(--main-bg-dark); /* Changed to match main content */
             transition: background-color 0.3s ease;
         }
-        body.light-mode { background-color: var(--bg-light); }
+        body.light-mode { background-color: var(--main-bg-light); }
         #app-container { flex: 1; display: flex; flex-direction: column; min-height: 0; }
         header.app-header {
             padding-top: env(safe-area-inset-top);
             flex-shrink: 0;
             background-image: linear-gradient(to bottom, #0052a8, #00428d);
-            color: var(--header-text-dark);
+            color: #ffffff;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         body.light-mode header.app-header {
              background-color: var(--header-light);
-             color: var(--header-text-light);
+             color: #1f2937;
              border-bottom: 1px solid #e5e7eb;
              background-image: none;
         }
@@ -73,11 +64,8 @@
             flex-grow: 1;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            background-color: var(--main-bg-dark);
-            transition: background-color 0.3s ease;
             padding: 1rem;
         }
-        body.light-mode main { background-color: var(--main-bg-light); }
         
         main footer {
             text-align: center;
@@ -86,19 +74,17 @@
             color: #6b7280;
             font-size: 0.75rem;
         }
-        body.light-mode main footer { color: #6b7280; }
 
         /* Visual Improvements */
         .content-card {
             background-color: var(--card-bg-dark);
-            color: var(--card-text-dark);
+            color: #1f2937;
             border-radius: 0.75rem;
             padding: 1rem 1.25rem;
             margin-bottom: 1rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        body.light-mode .content-card { background-color: var(--card-bg-light); color: var(--card-text-light); }
+        body.light-mode .content-card { background-color: var(--card-bg-light); }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -340,18 +326,18 @@
                 references: null,
                 notes: ['La cantidad de NaOH es una estimación, siempre verificar con medidor de pH.', 'La sangre es termolábil. Añadir al medio base enfriado.'],
                 ingredients: [
-                    { name: 'Agar Base Sangre', base_vol: 960, base_qty: 40, unit: 'g' },
-                    { name: 'NaCl', base_vol: 960, base_qty: 5, unit: 'g' },
-                    { name: 'L-Cisteína', base_vol: 960, base_qty: 1, unit: 'g' },
-                    { name: 'NaOH 10N', base_vol: 960, base_qty: 200, unit: 'µL' },
-                    { name: 'Agua para análisis', base_vol: 960, base_qty: 960, unit: 'ml' },
-                    { name: 'Sangre desfibrinada', base_vol: 960, base_qty: 40, unit: 'ml' }
+                    { name: 'Agar Base Sangre', base_vol: 1000, base_qty: 40, unit: 'g' },
+                    { name: 'NaCl', base_vol: 1000, base_qty: 5, unit: 'g' },
+                    { name: 'L-Cisteína', base_vol: 1000, base_qty: 1, unit: 'g' },
+                    { name: 'NaOH 10N', base_vol: 1000, base_qty: 200, unit: 'µL' },
+                    { name: 'Agua para análisis', base_vol: 1000, base_qty: 960, unit: 'ml' },
+                    { name: 'Sangre desfibrinada', base_vol: 1000, base_qty: 40, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver los polvos en el agua para análisis. Aplicar calor suave si es necesario.',
+                    'Disolver los polvos en 960 ml de agua para análisis. Aplicar calor suave si es necesario.',
                     'Añadir el NaOH estimado y verificar con pHmetro hasta alcanzar 6.7 ± 0.1.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
-                    'Enfriar a 45-50°C y añadir asépticamente la sangre.',
+                    'Enfriar a 80°C y añadir asépticamente los 40 ml de sangre.',
                     'Mezclar suavemente y dispensar en placas.'
                 ]
             },
@@ -388,19 +374,19 @@
                 references: null,
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO para el crecimiento de R. salmoninarum.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
-                    { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
-                    { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
-                    { name: 'L-Cisteína', base_vol: 900, base_qty: 1, unit: 'g' },
-                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
-                    { name: 'Agar', base_vol: 900, base_qty: 15, unit: 'g' },
-                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
-                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
+                    { name: 'Peptona', base_vol: 1000, base_qty: 10, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'L-Cisteína', base_vol: 1000, base_qty: 1, unit: 'g' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 1000, base_qty: 424, unit: 'µL' },
+                    { name: 'Agar', base_vol: 1000, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis (base)', base_vol: 1000, base_qty: 900, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 1000, base_qty: 100, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver los componentes (excepto SFB) en agua para análisis con agitación y calor.',
-                    'Añadir lentamente la cantidad estimada de NaOH 10N y verificar con un medidor de pH hasta alcanzar un pH de 7.5 ± 0.1. Nota: Las cantidades son estimaciones y pueden variar.',
+                    'Disolver los componentes (excepto SFB) en 900 ml de agua para análisis con agitación y calor.',
+                    'Añadir lentamente la cantidad estimada de NaOH 10N y verificar con un medidor de pH hasta alcanzar un pH de 7.5 ± 0.1.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
-                    'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',
+                    'Enfriar a 45-50°C y añadir los 100 ml de Suero Fetal Bovino asépticamente.',
                     'Mezclar y dispensar en placas.'
                 ]
             },
@@ -412,18 +398,18 @@
                 references: 'Evelyn (1977), Rhodes et al. (2008).',
                 notes: ['El ajuste de pH a 7.5 ± 0.1 es un paso CRÍTICO. El pH inicial es aprox. 5.15, por lo que el ajuste debe ser cuidadoso.', 'Las cantidades de NaOH 10N son estimaciones. Siempre verificar con medidor calibrado.', 'El Suero Fetal Bovino es termolábil. No añadir a medios calientes.'],
                 ingredients: [
-                    { name: 'Peptona', base_vol: 900, base_qty: 10, unit: 'g' },
-                    { name: 'Extracto de levadura', base_vol: 900, base_qty: 0.5, unit: 'g' },
-                    { name: 'L-Cisteína HCl', base_vol: 900, base_qty: 0.5, unit: 'g' },
-                    { name: 'NaOH 10N (estimado)', base_vol: 900, base_qty: 424, unit: 'µL' },
-                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
-                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 100, unit: 'ml' }
+                    { name: 'Peptona', base_vol: 1000, base_qty: 10, unit: 'g' },
+                    { name: 'Extracto de levadura', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'L-Cisteína HCl', base_vol: 1000, base_qty: 0.5, unit: 'g' },
+                    { name: 'NaOH 10N (estimado)', base_vol: 1000, base_qty: 424, unit: 'µL' },
+                    { name: 'Agua para análisis (base)', base_vol: 1000, base_qty: 900, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 1000, base_qty: 100, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver los polvos en el agua para análisis.',
+                    'Disolver los polvos en 900 ml de agua para análisis.',
                     'Ajuste de pH (Paso Crítico): Medir pH inicial (aprox. 5.15). Añadir lentamente el NaOH 10N estimado y ajustar gota a gota hasta alcanzar 7.5 ± 0.1.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
-                    'Enfriar a 45-50°C y añadir el Suero Fetal Bovino asépticamente.',
+                    'Enfriar a 45-50°C y añadir los 100 ml de Suero Fetal Bovino asépticamente.',
                     'Mezclar y alicuotar si es necesario.'
                 ]
             },
@@ -435,14 +421,14 @@
                 references: 'Contreras-Lynch et al. (2017).',
                 notes: ['La Solución Stock se debe esterilizar por filtración, NUNCA en autoclave, ya que sus componentes son termolábiles.'],
                 ingredients: [
-                    { name: 'TSB', base_vol: 900, base_qty: 25, unit: 'g' },
-                    { name: 'NaCl', base_vol: 900, base_qty: 15, unit: 'g' },
-                    { name: 'Agua para análisis (base)', base_vol: 900, base_qty: 900, unit: 'ml' },
-                    { name: 'Solución Stock', base_vol: 900, base_qty: 50, unit: 'ml' },
-                    { name: 'Suero Fetal Bovino', base_vol: 900, base_qty: 50, unit: 'ml' }
+                    { name: 'TSB', base_vol: 1000, base_qty: 25, unit: 'g' },
+                    { name: 'NaCl', base_vol: 1000, base_qty: 15, unit: 'g' },
+                    { name: 'Agua para análisis (base)', base_vol: 1000, base_qty: 900, unit: 'ml' },
+                    { name: 'Solución Stock', base_vol: 1000, base_qty: 50, unit: 'ml' },
+                    { name: 'Suero Fetal Bovino', base_vol: 1000, base_qty: 50, unit: 'ml' }
                 ],
                 steps: [
-                    'Disolver TSB y NaCl en el agua para análisis.',
+                    'Disolver TSB y NaCl en 900 ml de agua para análisis.',
                     'Esterilizar el medio base según el procedimiento estándar general.',
                     'Enfriar a 45-50°C, añadir la Solución Stock y el SFB asépticamente.',
                     'Mezclar y alicuotar.'
@@ -593,6 +579,7 @@
         const volumeInput = document.getElementById('volume-input');
         const calculatorResults = document.getElementById('calculator-results');
         const themeToggleButton = document.getElementById('theme-toggle-btn');
+        const themeColorMeta = document.getElementById('theme-color-meta');
 
         let currentMediaForCalculator = null;
 
@@ -677,7 +664,10 @@
                             <tbody>
                 ${media.ingredients.map(ing => {
                     const getAmountForVolume = (targetVol) => {
-                        if (ing.base_vol !== targetVol && media.id === 'solucion-stock-ifop') return 'N/A';
+                        // Special case for stock solution which is only defined for 500ml
+                        if (media.id === 'solucion-stock-ifop' && ing.base_vol !== targetVol) {
+                            return 'N/A';
+                        }
                         const amount = (targetVol / ing.base_vol) * ing.base_qty;
                         return `${formatNumber(amount)} ${ing.unit}`;
                     };
@@ -764,9 +754,11 @@
             if (theme === 'light') {
                 document.body.classList.add('light-mode');
                 themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+                themeColorMeta.setAttribute('content', '#ffffff');
             } else {
                 document.body.classList.remove('light-mode');
                 themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+                themeColorMeta.setAttribute('content', '#00428d');
             }
         }
 
