@@ -75,16 +75,18 @@
             -webkit-overflow-scrolling: touch;
             background-color: var(--main-bg-dark);
             transition: background-color 0.3s ease;
+            padding: 1rem;
         }
         body.light-mode main { background-color: var(--main-bg-light); }
-        footer {
-            flex-shrink: 0;
-            padding-bottom: env(safe-area-inset-bottom);
-            background-color: var(--header-dark);
-            color: var(--select-label-dark);
-            transition: background-color 0.3s ease;
+        
+        main footer {
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)); /* Safe area for home bar */
+            color: #6b7280;
+            font-size: 0.75rem;
         }
-        body.light-mode footer { background-color: var(--header-light); color: var(--select-label-light); }
+        body.light-mode main footer { color: #6b7280; }
 
         /* Visual Improvements */
         .content-card {
@@ -114,7 +116,6 @@
         .checklist-item { display: flex; align-items: center; padding: 10px 4px; border-bottom: 1px solid #e5e7eb; cursor: pointer; transition: background-color 0.2s; }
         .checklist-item:last-child { border-bottom: none; }
         .checklist-item:hover { background-color: #f9fafb; }
-        .checklist-item input[type="checkbox"] { display: none; }
         .checklist-item .checkbox-custom {
             width: 22px; height: 22px; border: 2px solid #9ca3af; border-radius: 6px;
             margin-right: 15px; display: flex; align-items: center; justify-content: center;
@@ -152,14 +153,13 @@
         </div>
 
         <main>
-            <div id="procedure-display" class="p-4 md:p-6">
+            <div id="procedure-display">
                 <!-- Content cards will be injected here -->
             </div>
+            <footer>
+                <p>Manual de Procedimientos v2.0</p>
+            </footer>
         </main>
-
-        <footer class="text-center py-2 px-4">
-            <p class="text-sm">Manual de Procedimientos v2.0</p>
-        </footer>
     </div>
     
     <div id="calculator-modal" class="modal-overlay hidden">
@@ -697,7 +697,7 @@
                 const stepsList = `<ol class="space-y-1 mt-2">${media.steps.map((step, index) => `
                     <li class="checklist-item" data-step="${index}">
                         <span class="checkbox-custom"><i class="fa-solid fa-check"></i></span>
-                        <label for="step-${index}" class="text-gray-700 leading-relaxed">${step}</label>
+                        <label class="text-gray-700 leading-relaxed">${step}</label>
                     </li>`).join('')}</ol>`;
                 
                 const notesList = (media.notes && media.notes.length > 0) 
@@ -731,7 +731,7 @@
                         item.classList.toggle('completed');
                     });
                 });
-            }, 50); // A small delay to ensure the class is removed before being re-added
+            }, 50);
         }
         
         function openCalculator() {
